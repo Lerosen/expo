@@ -302,6 +302,10 @@ public class AppAuthModule extends ExportedModule {
           authReqBuilder.setLoginHint(parameters.get(AppAuthConstants.HTTPS.LOGIN_HINT));
           parameters.remove(AppAuthConstants.HTTPS.LOGIN_HINT);
         }
+        if (parameters.containsKey("codeVerifier")) {
+          authReqBuilder.setCodeVerifier(parameters.get("codeVerifier"));
+          parameters.remove("codeVerifier");
+        }
         authReqBuilder.setAdditionalParameters(parameters);
       }
 
